@@ -35,4 +35,4 @@ This is a Django REST API, the backend of a project management system.
     ```bash
     python manage.py runserver
     ```
-Go to localhost:8000/admin and check if it's working
+Go to [localhost:8000/admin]() and check if it's working
