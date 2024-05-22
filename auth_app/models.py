@@ -27,6 +27,3 @@ class User(AbstractUser):
     class Meta:
         verbose_name = "User"
         verbose_name_plural = "Users"
-
-    def is_customer(self):
-        return self.customer is not None

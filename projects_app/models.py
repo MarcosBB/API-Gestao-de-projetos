@@ -1,6 +1,7 @@
 from django.db import models
 from auth_app.models import Customer, User
 
+
 class Sprint(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField(blank=True)
@@ -49,8 +50,20 @@ class Task(models.Model):
     sprint = models.ForeignKey(
         Sprint, on_delete=models.SET_NULL, null=True, blank=True, related_name="tasks"
     )
-    reporter = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL, related_name="tasks_reported")
-    assignee = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL, related_name="tasks_assigned")
+    reporter = models.ForeignKey(
+        User,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="tasks_reported",
+    )
+    assignee = models.ForeignKey(
+        User,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="tasks_assigned",
+    )
 
     def __str__(self):
         return self.name
