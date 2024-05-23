@@ -1,0 +1,11 @@
+[run]
+omit =
+    */tests/*
+    */migrations/*.py
+    manage.py
+    wsgi.py
+    asgi.py
+
+[report]
+exclude_also =
+    def __str__

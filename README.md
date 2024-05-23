@@ -36,3 +36,15 @@ This is a Django REST API, the backend of a project management system.
     python manage.py runserver
     ```
 Go to [localhost:8000/admin](http://localhost:8000/admin/) and check if it's working
+
+## Running tests and coverage
+To run the tests:
+```bash
+./manage.py test
+```
+
+To get coverage report:
+```bash
+coverage run --source='.' manage.py test
+coverage report
+```
