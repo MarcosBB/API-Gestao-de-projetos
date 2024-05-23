@@ -46,6 +46,7 @@ class TaskSerializer(FlexFieldsModelSerializer):
             "sprint",
             "reporter",
             "assignee",
+            "status",
         ]
         expandable_fields = {
             "project": ProjectSerializer,

@@ -11,8 +11,8 @@ class TaskViewSet(FlexFieldsModelViewSet):
     serializer_class = TaskSerializer
     # permission_classes = [permissions.IsAuthenticated]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ["project", "sprint", "reporter", "assignee"]
+    filterset_fields = ["project", "sprint", "reporter", "assignee", "status"]
     search_fields = ["name", "description"]
-    ordering_fields = ["created_at", "priority", "id"]
+    ordering_fields = ["created_at", "priority", "id", "status"]
     ordering = ["-created_at"]
     permit_list_expands = ["project", "sprint", "reporter", "assignee"]

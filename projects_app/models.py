@@ -33,19 +33,28 @@ class Project(models.Model):
 
 
 class Task(models.Model):
-    class TaskPriority(models.IntegerChoices):
+    class Priority(models.IntegerChoices):
         LOW = 1
         MEDIUM = 2
         HIGH = 3
         CRITICAL = 4
+    
+    class Status(models.IntegerChoices):
+        TO_DO = 1
+        IN_PROGRESS = 2
+        REVIEW = 3
+        DONE = 4
 
     name = models.CharField(max_length=128)
     description = models.TextField(blank=True)
     priority = models.SmallIntegerField(
-        choices=TaskPriority.choices, default=TaskPriority.MEDIUM
+        choices=Priority.choices, default=Priority.MEDIUM
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    status = models.SmallIntegerField(
+        choices=Status.choices, default=Status.TO_DO
+    )
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="tasks")
     sprint = models.ForeignKey(
         Sprint, on_delete=models.SET_NULL, null=True, blank=True, related_name="tasks"
