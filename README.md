@@ -49,7 +49,6 @@ coverage run --source='.' manage.py test
 coverage report
 ```
 
-
 ## Using the API
 You can import the [Postman collection](./Projects-management-API.postman_collection.json) to test the API.
 
@@ -61,4 +60,11 @@ Just run the project and use the HOST variable in the postman collection to `loc
 
 Know that you can use `filters`, `sorting`, `searches`, `expanding fields`, `asking for just a few fields`... etc. Just look at the postman collection in the listing endpoints in the `params` tab. Some use cases are documented there.
 
-![alt text](image.png)
+![alt text](./documentation_src/figma-filters.png)
+
+## Admin Page
+You can access the admin page to manage the data in the database. Just go to [localhost:8000/admin](http://localhost:8000/admin/).
+
+Try to create some users and customers before start using the API.
+
+![alt text](./documentation_src/django-admin-page.png)
