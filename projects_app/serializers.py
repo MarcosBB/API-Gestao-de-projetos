@@ -28,7 +28,7 @@ class SprintSerializer(FlexFieldsModelSerializer):
         end_date = attrs.get("end_date") or (
             self.instance.end_date if self.instance else None
         )
-
+        
         if start_date > end_date:
             raise serializers.ValidationError("Start date must be before end date")
         return super().validate(attrs)

@@ -1,4 +1,4 @@
-from django.utils import timezone
+import datetime 
 from model_bakery import recipe
 from faker import Faker
 from auth_app.tests import recipes as auth_recipes
@@ -14,8 +14,8 @@ sprint = recipe.Recipe(
     Sprint,
     name = fake.name,
     description = fake.text,
-    start_date = timezone.now(),
-    end_date = timezone.now() + timezone.timedelta(days=7),
+    start_date = datetime.date.today(),
+    end_date = datetime.date.today() + datetime.timedelta(days=7),
 )
 
 project = recipe.Recipe(

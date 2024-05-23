@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 from auth_app.models import Customer, User
 
 
@@ -14,6 +15,12 @@ class Sprint(models.Model):
     class Meta:
         verbose_name = "Sprint"
         verbose_name_plural = "Sprints"
+        constraints = [
+            models.CheckConstraint(
+                check=Q(start_date__lte=models.F("end_date")),
+                name="start_date_must_be_before_end_date",
+            )
+        ]
 
 
 class Project(models.Model):
