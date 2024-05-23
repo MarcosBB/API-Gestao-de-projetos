@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import Task, Project, Sprint
 
+
 class TaskAdmin(admin.ModelAdmin):
     list_display = ("name", "project", "sprint", "created_at")
     list_filter = ("priority", "project", "sprint", "reporter", "assignee")

@@ -36,3 +36,29 @@ This is a Django REST API, the backend of a project management system.
     python manage.py runserver
     ```
 Go to [localhost:8000/admin](http://localhost:8000/admin/) and check if it's working
+
+## Running tests and coverage
+To run the tests:
+```bash
+./manage.py test
+```
+
+To get coverage report:
+```bash
+coverage run --source='.' manage.py test
+coverage report
+```
+
+
+## Using the API
+You can import the [Postman collection](./Projects-management-API.postman_collection.json) to test the API.
+
+Just run the project and use the HOST variable in the postman collection to `localhost:8000`.
+
+```bash
+./manage.py runserver
+```
+
+Know that you can use `filters`, `sorting`, `searches`, `expanding fields`, `asking for just a few fields`... etc. Just look at the postman collection in the listing endpoints in the `params` tab. Some use cases are documented there.
+
+![alt text](image.png)
