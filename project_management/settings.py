@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "django_extensions",
     "django_filters",
     "rest_framework",
+    "rest_framework_simplejwt",
+    "rest_framework.authtoken",
 ]
 
 MIDDLEWARE = [
@@ -77,6 +79,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "project_management.wsgi.application"
 
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    )
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

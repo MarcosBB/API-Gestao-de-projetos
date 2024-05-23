@@ -38,7 +38,7 @@ class Task(models.Model):
         MEDIUM = 2
         HIGH = 3
         CRITICAL = 4
-    
+
     class Status(models.IntegerChoices):
         TO_DO = 1
         IN_PROGRESS = 2
@@ -52,9 +52,7 @@ class Task(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    status = models.SmallIntegerField(
-        choices=Status.choices, default=Status.TO_DO
-    )
+    status = models.SmallIntegerField(choices=Status.choices, default=Status.TO_DO)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="tasks")
     sprint = models.ForeignKey(
         Sprint, on_delete=models.SET_NULL, null=True, blank=True, related_name="tasks"
